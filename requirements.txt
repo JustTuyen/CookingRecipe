@@ -1,0 +1,8 @@
+Python: 3.14.8
+Django 
+version:6.1.2
+package:
++ django-cors-headers
++ djangorestframework
++ django-dotenv # for .env
++ virtualenv
