@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from cores.models import Status
+from productions.models import Dish, Course
 # Create your models here.
 class User(AbstractUser):
     class ROLE(models.TextChoices):
@@ -19,6 +20,7 @@ class User(AbstractUser):
         related_name='users',
         on_delete=models.PROTECT,
     )
+
     class Meta:
         indexes = [
             models.Index(fields=['role', '-created_at'], name='idx_user_role_create')
@@ -27,4 +29,48 @@ class User(AbstractUser):
     def __str__(self):
         return f"{self.email}:'{self.role}"
 
-    
+class Save(models.Model):
+    user = models.ForeignKey(
+        User,
+        related_name='saves',
+        on_delete=models.CASCADE,
+    )
+
+    dish = models.ForeignKey(
+        Dish,
+        on_delete=models.PROTECT,
+        related_name='saves'
+    )
+    note = models.CharField(max_length=1000, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        indexes = [
+            models.Index(fields=['user','dish'], name='idx_save_user_dish')
+        ]
+
+        ordering = ['user','created_at']
+    def __str__(self):
+        return f"{self.created_at}"
+
+class Follow(models.Model):
+    user = models.ForeignKey(
+        User,
+        related_name='follows',
+        on_delete=models.CASCADE,
+    )
+
+    course = models.ForeignKey(
+        Course,
+        related_name='follows',
+        on_delete=models.CASCADE,
+    )
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        indexes = [
+            models.Index(fields=['user','course'], name='idx_save_user_cours')
+        ]
+
+        ordering = ['user','created_at']
+    def __str__(self):
+        return f"{self.created_at}"

@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from cores.models import Status, Media, Tag
+
 # Create your models here
 class Category(models.Model):
     name = models.CharField(max_length=255, unique=True)
@@ -60,7 +61,18 @@ class Course(models.Model):
         on_delete=models.PROTECT,
         related_name='courses'
     )
+    media = models.ManyToManyField(
+        Media,
+        through="promotions.CourseMedia",
+        related_name="courses",
+    )
 
+    tags = models.ManyToManyField(
+        Tag,
+        through="TaggingCourse",
+        related_name="courses",
+    )
+    
     class Meta:
         ordering = ['name', '-created_at']
 
@@ -130,7 +142,12 @@ class Dish(models.Model):
         related_name='dished',
         blank=True,
         null=True,
-        help_text="if dish belongs to courses"
+        help_text="If the dish belongs to a course",
+    )
+    media = models.ManyToManyField(
+        Media,
+        through="promotions.DishMedia",
+        related_name="dishes",
     )
     tags = models.ManyToManyField(
         Tag,

@@ -3,6 +3,7 @@ from cores.models import Media, Status
 from django.core.validators import MinValueValidator, MaxValueValidator
 from users.models import User
 from productions.models import Dish, Course
+from django.db.models import Q
 # Create your models here.
 
 class Banner(models.Model):
@@ -40,6 +41,12 @@ class Post(models.Model):
         Status,
         on_delete=models.PROTECT,
         related_name='posts',
+    )
+
+    media = models.ManyToManyField(
+        Media,
+        through="PostMedia",
+        related_name="posts",
     )
 
     class Meta:
@@ -91,4 +98,71 @@ class CourseReview(BaseReview):
             models.UniqueConstraint(fields=["user", "course"], name="unique_user_course_review"),
         ]
 
-class MediaGallary(models.Model):
+
+#media library for each model
+class BaseGalleryItem(models.Model):
+    media = models.ForeignKey(
+        Media,
+        on_delete=models.PROTECT,
+        related_name="%(class)s_items",   
+    )
+    sort_order = models.PositiveIntegerField(default=0)
+    is_primary = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        abstract = True
+        ordering = ["sort_order", "id"]
+
+class DishMedia(BaseGalleryItem):
+    dish = models.ForeignKey(Dish, on_delete=models.CASCADE, related_name="gallery")
+        
+    class Meta(BaseGalleryItem.Meta):
+        constraints = [
+            models.UniqueConstraint(fields=["dish", "media"], name="unique_dish_media"),
+            models.UniqueConstraint(
+                fields=["dish"], condition=Q(is_primary=True), name="one_primary_per_dish"
+            ),
+        ]
+
+
+class CourseMedia(BaseGalleryItem):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="gallery")
+
+    class Meta(BaseGalleryItem.Meta):
+        constraints = [
+            models.UniqueConstraint(fields=["course", "media"], name="unique_course_media"),
+            models.UniqueConstraint(
+                fields=["course"], condition=Q(is_primary=True), name="one_primary_per_course"
+            ),
+        ]
+
+
+class PostMedia(BaseGalleryItem):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="gallery")
+
+    class Meta(BaseGalleryItem.Meta):
+        constraints = [
+            models.UniqueConstraint(fields=["post", "media"], name="unique_post_media"),
+            models.UniqueConstraint(
+                fields=["post"], condition=Q(is_primary=True), name="one_primary_per_post"
+            ),
+        ]
+
+
+class DishReviewMedia(BaseGalleryItem):
+    review = models.ForeignKey(DishReview, on_delete=models.CASCADE, related_name="gallery")
+
+    class Meta(BaseGalleryItem.Meta):
+        constraints = [
+            models.UniqueConstraint(fields=["review", "media"], name="unique_dishreview_media"),
+        ]
+
+
+class CourseReviewMedia(BaseGalleryItem):
+    review = models.ForeignKey(CourseReview, on_delete=models.CASCADE, related_name="gallery")
+
+    class Meta(BaseGalleryItem.Meta):
+        constraints = [
+            models.UniqueConstraint(fields=["review", "media"], name="unique_coursereview_media"),
+        ]
