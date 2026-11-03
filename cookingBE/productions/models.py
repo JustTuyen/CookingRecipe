@@ -40,6 +40,13 @@ class SubCategory(models.Model):
         null=False,
         blank=False
     )
+    media = models.ForeignKey(
+        Media,
+        on_delete=models.PROTECT,
+        related_name='subcategories',
+        null=True,
+        blank=True
+    )
     class Meta:
         indexes = [
             models.Index(fields=['category','name'], name='idx_subcat_cat_name')
@@ -55,7 +62,6 @@ class Course(models.Model):
     description = models.CharField(max_length=2000, blank=True, default='')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    tags = models.ManyToManyField(Tag, through="course_tag", related_name="courses")
     status = models.ForeignKey(
         Status,
         on_delete=models.PROTECT,

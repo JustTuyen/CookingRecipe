@@ -18,19 +18,22 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = env('DEBUG')
 
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+DATABASES = {
+    'default': env.db_url('DATABASE_URL')
+}
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'cores','productions','promotions',
+    'cores','productions','promotions','users',
 ]
 
 MIDDLEWARE = [
@@ -44,6 +47,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'mysite.urls'
+AUTH_USER_MODEL = 'users.User'
+
+
 
 TEMPLATES = [
     {
@@ -72,10 +78,6 @@ REST_FRAMEWORK = {
 }
 # Database
 # https://docs.djangoproject.com/en/6.1/ref/settings/#databases
-
-DATABASES = {
-    'default': env.db_url()
-}
 
 
 # Password validation
