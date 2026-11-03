@@ -272,6 +272,34 @@ class Direction(models.Model):
     def __str__(self):
         return f"{self.step_number}:{self.instruction}"
 
+class NutritionFact(models.Model):
+    Calories = models.PositiveIntegerField(blank=True)
+    Fat = models.PositiveIntegerField(blank=True)
+    Carbs = models.PositiveIntegerField(blank=True)
+    Protein = models.PositiveIntegerField(blank=True)
+    Dietary_Fiber= models.PositiveIntegerField(blank=True)
+    Total_Sugars= models.PositiveIntegerField(blank=True)
+    Protein = models.PositiveIntegerField(blank=True)
+    Saturated_Fat= models.PositiveIntegerField(blank=True)
+    Cholesterol = models.PositiveIntegerField(blank=True)
+    Vitamin_C= models.PositiveIntegerField(blank=True)
+    Sodium = models.PositiveIntegerField(blank=True)
+    Calcium = models.PositiveIntegerField(blank=True)
+    Iron = models.PositiveIntegerField(blank=True)
+    Potassium = models.PositiveIntegerField(blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    dish = models.ForeignKey(
+        Dish,
+        on_delete=models.CASCADE,
+        related_name='nutritionFacts'
+    )
+    class Meta:
+        ordering = ['dish', '-created_at']
+    def __str__(self):
+        return f"{self.Calories}:{self.created_at}"
+
+
 #taggings
 class TaggingDish(models.Model):
     tag = models.ForeignKey(
