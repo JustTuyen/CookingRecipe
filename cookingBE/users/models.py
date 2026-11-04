@@ -74,3 +74,32 @@ class Follow(models.Model):
         ordering = ['user','created_at']
     def __str__(self):
         return f"{self.created_at}"
+
+class Report(models.Model):
+    user = models.ForeignKey(
+        User,
+        related_name='reports',
+        on_delete=models.CASCADE
+    )
+    dish = models.ForeignKey(
+        Dish,
+        related_name='reports',
+        on_delete=models.CASCADE
+    )
+    status = models.ForeignKey(
+        Status,
+        related_name='reports',
+        on_delete=models.PROTECT
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    type_violation = models.CharField(max_length=255)
+    reason = models.CharField(max_length=1000, blank=True)
+    class Meta:
+        indexes = [
+            models.Index(fields=['status','type_violation'], name='idx_rep_sta_type')
+        ]
+        ordering = ['type_violation','created_at']
+    def __str__(self):
+            return f"{self.type_violation}:'{self.created_at}"
+

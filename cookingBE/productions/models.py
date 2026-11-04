@@ -54,9 +54,10 @@ class SubCategory(models.Model):
         ordering = ['category','name']
 
     def __str__(self):
-        return f"{self.category}:{self.name}"
+        return f"{self.name}:{self.description}"
 
 #ordering courses...
+#what? i dont remember??
 class Course(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.CharField(max_length=2000, blank=True, default='')
@@ -84,7 +85,58 @@ class Course(models.Model):
 
     def __str__(self):
          return f"{self.name}"
-    
+
+class ChildSubCategory(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.CharField(max_length=255, blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    subCategory = models.ForeignKey(
+        SubCategory,
+        on_delete=models.PROTECT,
+        related_name='childsubcategories',
+    )
+    status = models.ForeignKey(
+        Status,
+        on_delete=models.PROTECT,
+        related_name="childsubcategories",
+    )
+    class Meta:
+        indexes = [
+            models.Index(fields=['subCategory','name'], name='idx_child_subcat_name')
+        ]
+        ordering = ['subCategory','name']
+
+    def __str__(self):
+        return f"{self.name}:{self.description}"
+
+#sub -> child -> grandchild
+#cat -> sub -> subsub // lol i dont know how else to name
+class GrandChildCategory(models.Model):
+    name = models.CharField(max_length=255, unique=True)
+    description = models.CharField(max_length=255, blank=True, default='')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    childSubCategory = models.ForeignKey(
+        ChildSubCategory,
+        on_delete=models.PROTECT,
+        related_name='grandchildcategories',
+    )
+    status = models.ForeignKey(
+        Status,
+        on_delete=models.PROTECT,
+        related_name="grandchildcategories",
+    )
+    class Meta:
+        indexes = [
+            models.Index(fields=['childSubCategory','name'], name='idx_grand_child_name')
+        ]
+        ordering = ['childSubCategory','name']
+
+    def __str__(self):
+        return f"{self.name}:{self.description}"
+
+
 class Dish(models.Model):
     DIFFICULTY_CHOICES = [
         (1, 'Easy'),
@@ -126,12 +178,22 @@ class Dish(models.Model):
         default=1
     )
 
-    subCategory = models.ForeignKey(
-        SubCategory,
+    childsubcategory = models.ForeignKey(
+        ChildSubCategory,
         on_delete=models.PROTECT,
         related_name='dishes',
         null=False,
         blank=False,
+    )
+
+    #in case if belong to another level of grand-sub-cats
+    #nullable
+    grandsubcategory = models.ForeignKey(
+        GrandChildCategory,
+        on_delete=models.PROTECT,
+        related_name='dishes',
+        null=True,
+        blank=True,
     )
 
     status = models.ForeignKey(

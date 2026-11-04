@@ -4,5 +4,26 @@ version:6.1.2
 package:
 + django-cors-headers
 + djangorestframework
-+ django-dotenv # for .env
-+ virtualenv
++ django-environ
++ psycopg2-binary
+
+react vite:
++ axios
++ npm install --save react-toastify
++ npm i react-router
++ npm install @mui/material @emotion/react @emotion/styled
++ npm install @mui/icons-material
++ npm install react-quill --save
+
+
+color theme:
+https://colorhunt.co/palette/fef3e2f4ae52d4621a2a1a0e
+
+inspired by:
+https://www.allrecipes.com/
+
+react-mui:
+https://mui.com/material-ui/react-menu/
+
+react-mui/icon:
+https://mui.com/material-ui/material-icons/
