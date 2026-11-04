@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from .models import Category, SubCategory,Course, ChildSubCategory, Dish,GrandChildCategory
-from .serializers import (CategorySerializer, SubCategorySerializer, DishSerializer, 
-CourseSerializer, ChildSubCategorySerializer,GrandChildCategorySerializer)
+from .serializers import (CategorySerializer, SubCategorySerializer, DishSerializer,CourseSerializer, ChildSubCategorySerializer,GrandChildCategorySerializer)
 
 # Create your views here.
 

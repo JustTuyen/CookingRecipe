@@ -14,6 +14,8 @@ react vite:
 + npm install @mui/material @emotion/react @emotion/styled
 + npm install @mui/icons-material
 + npm install react-quill --save
++ pip install cloudinary
++ pip install pillow
 
 
 color theme:
