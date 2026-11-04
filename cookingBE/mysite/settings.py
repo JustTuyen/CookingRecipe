@@ -2,7 +2,7 @@
 import environ
 import os
 from pathlib import Path
-
+import cloudinary
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool,False))
@@ -49,7 +49,13 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'mysite.urls'
 AUTH_USER_MODEL = 'users.User'
 
-
+#media
+cloudinary.config(
+    cloud_name=env("CLOUDINARY_CLOUD_NAME"),
+    api_key=env("CLOUDINARY_API_KEY"),
+    api_secret=env("CLOUDINARY_API_SECRET"),
+    secure=True,
+)
 
 TEMPLATES = [
     {
