@@ -6,6 +6,9 @@ package:
 + djangorestframework
 + django-environ
 + psycopg2-binary
++ pip install cloudinary
++ pip install pillow
+
 
 react vite:
 + axios
@@ -13,10 +16,8 @@ react vite:
 + npm i react-router
 + npm install @mui/material @emotion/react @emotion/styled
 + npm install @mui/icons-material
-+ npm install react-quill --save
-+ pip install cloudinary
-+ pip install pillow
-
++ npm install react-slick --save
++ npm install react-quill --legacy-peer-deps
 
 color theme:
 https://colorhunt.co/palette/fef3e2f4ae52d4621a2a1a0e
