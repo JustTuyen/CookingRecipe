@@ -6,7 +6,7 @@ class BannerSerializer(serializers.ModelSerializer):
         model = Banner
         fields = [
             'id', 'name', 'description', 'created_at', 'updated_at',
-            'note','display_order',
+            'note','display_order','router_to',
             'status','media'
         ]
         read_only_fields = ['created_at', 'updated_at']

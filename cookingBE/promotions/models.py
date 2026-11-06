@@ -13,6 +13,7 @@ class Banner(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     display_order = models.PositiveIntegerField(help_text='the order of the banner display')
     note = models.CharField(max_length=255, blank=True)
+    router_to = models.CharField(max_length=255, blank=True, help_text='add router link if has')
     media = models.ForeignKey(
         Media,
         on_delete=models.PROTECT,
