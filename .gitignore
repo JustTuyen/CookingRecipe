@@ -1,12 +1,13 @@
-cookingBE/.env;
-cookingBE/cores/__pycache__/
-cookingBE/cores/__pycache__/
-cookingBE/mysite/__pycache__/
-cookingBE/productions/__pycache__/
-cookingBE/productions/__pycache__/
-cookingBE/productions/__pycache__/
-cookingBE/promotions/__pycache__/
+# Environment variables
+cookingBE/.env
+
+# Python cache
+**/__pycache__/
+*.py[cod]
+
+# Django migrations
 cookingBE/promotions/migrations/
-cookingBE/promotions/migrations/__pycache__/
+
+# Node.js
 package-lock.json
 package.json
