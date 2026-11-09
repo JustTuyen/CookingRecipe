@@ -4,16 +4,21 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 
-import Category from './views/categorypage.jsx'
+import SubCategory from './views/subcategorypage.jsx'
 import Home from './views/homepage.jsx'
 import NotFound from './views/notfound.jsx'
-
+import ChildCategory from './views/childCategoryPage.jsx'
+import GrandChildCategory from './views/grandchildcatetorypage.jsx'
+import DishDetail from './views/dishdetailpage.jsx'
 
 
 const router = createBrowserRouter([
   {path:'/',element:<Home/>},
   {path:'*',element:<NotFound/>},
-  {path:'/news',element:<Category/>},
+  {path:'/subcategory',element:<SubCategory/>},
+  {path:'/childcategory',element:<ChildCategory/>},
+  {path:'/grandchildcategory',element:<GrandChildCategory/>},
+  {path:'/dish',element:<DishDetail/>},
 ])
 
 
