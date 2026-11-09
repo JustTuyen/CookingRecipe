@@ -13,12 +13,12 @@ function SampleNextArrow(props) {
         className={className}
         style={{
             ...style,
-                width: "20px",
-                height: "20px",
-                background: "#D4621A",
-                borderRadius: "50%",
-                cursor: "pointer",
-                zIndex: 2
+            width: "20px",
+            height: "20px",
+            background: "#D4621A",
+            borderRadius: "50%",
+            cursor: "pointer",
+            zIndex: 2
         }}
         onClick={onClick}
         />
