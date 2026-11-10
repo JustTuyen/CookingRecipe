@@ -103,3 +103,24 @@ class Report(models.Model):
     def __str__(self):
             return f"{self.type_violation}:'{self.created_at}"
 
+class Completion(models.Model):
+    user = models.ForeignKey(
+        User,
+        related_name='completions',
+        on_delete=models.CASCADE,
+    )
+
+    dish = models.ForeignKey(
+        Dish,
+        on_delete=models.CASCADE,
+        related_name='completions'
+    )
+    created_at = models.DateTimeField(auto_now_add=True)
+    class Meta:
+        indexes = [
+            models.Index(fields=['dish','user'], name='idx_complete_dish_user')
+        ]
+
+        ordering = ['dish','user']
+    def __str__(self):
+        return f"{self.created_at}"

@@ -149,6 +149,7 @@ class Dish(models.Model):
     author = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    chef_note = models.CharField(max_length=2000, blank=True)
     cooking_time = models.PositiveIntegerField(
         null=True,
         blank=True,
