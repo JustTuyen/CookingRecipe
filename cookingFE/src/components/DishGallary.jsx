@@ -69,7 +69,7 @@ function DishGallery(){
             slidesToShow: 3,
             slidesToScroll: 3,
             infinite: true,
-            dots: true
+            dots: false
             }
         },
         {
@@ -93,10 +93,10 @@ function DishGallery(){
 
     return(
         <>
-        <Box sx={{width:'100%'}}>
+        <Box sx={{width:'80%'}}>
             <iframe
                className="w-full md:w-[70%] h-[250px] md:h-[450px]"
-                height="450"
+                height="500"
                 src="https://www.youtube.com/embed/6c28qWDMPBA"
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

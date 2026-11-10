@@ -17,8 +17,13 @@
     height: 45px;
 }
 
+.slider-container-banner{
+    width: auto;
+    margin: 0px 20px;
+}
+
 .slider-container{
-    width: 70%;
+    width: 80%;
     margin: 0px 20px;
 }
 

@@ -61,7 +61,7 @@ function Banner(){
 
     return(
         <>
-        <div className="slider-container">
+        <div className="slider-container-banner">
             <Slider {...settings}>
                 <div>
                     <img src={banner01} className='banner-items' alt="place holder banner 01" />
