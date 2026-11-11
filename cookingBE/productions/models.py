@@ -140,7 +140,8 @@ class GrandChildCategory(models.Model):
     def __str__(self):
         return f"{self.name}:{self.description}"
 
-
+#add extra detail section - mxchar = 2000, blank true
+#use react quilver
 class Dish(models.Model):
     DIFFICULTY_CHOICES = [
         (1, 'Easy'),
