@@ -1,6 +1,7 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from cores.models import Status, Media, Tag
+from django.conf import settings
 
 # Create your models here
 class Category(models.Model):
@@ -112,6 +113,9 @@ class ChildSubCategory(models.Model):
 
 #sub -> child -> grandchild
 #cat -> sub -> subsub // lol i dont know how else to name
+#participation number 1:
+#subcat lv1 -> subcat lv2 -> subcat lv3 // still lame
+
 class GrandChildCategory(models.Model):
     name = models.CharField(max_length=255, unique=True)
     description = models.CharField(max_length=255, blank=True, default='')
@@ -146,7 +150,7 @@ class Dish(models.Model):
 
     name = models.CharField(max_length=255, unique=True)
     description = models.CharField(max_length=2000, blank=True, default='')
-    author = models.CharField(max_length=255)
+    #author = models.CharField(max_length=255)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     chef_note = models.CharField(max_length=2000, blank=True)
@@ -203,6 +207,16 @@ class Dish(models.Model):
         related_name="dishes",
         null=False,
         blank=False
+    )
+    
+    #for if dish post by user
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name='dishes',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True
+
     )
 
     course = models.ForeignKey(
