@@ -23,13 +23,13 @@
 }
 
 .slider-container{
-    width: 80%;
+    width: 90%;
     margin: 0px 20px;
 }
 
 .dish-items{
-    height: 125px;
-    width: 150px;
+    height: 135px;
+    width: 170px;
     object-fit: contain;
     object-position: center;
 }

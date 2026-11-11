@@ -1,0 +1,26 @@
+.custom-progress {
+    height: 10px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #D4621A;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Chrome, Edge, Safari */
+.custom-progress::-webkit-progress-bar {
+    background-color: white;
+    border-radius: 10px;
+}
+
+.custom-progress::-webkit-progress-value {
+    background-color: #D4621A;
+    border-radius: 10px;
+}
+
+/* Firefox */
+.custom-progress::-moz-progress-bar {
+    background-color: #D4621A;
+    border-radius: 10px;
+}

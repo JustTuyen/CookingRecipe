@@ -57,7 +57,7 @@ function DishGallery(){
         dots: false,
         infinite: false,
         speed: 500,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 2,
         initialSlide: 0,
         nextArrow: <SampleNextArrow />,
@@ -93,9 +93,9 @@ function DishGallery(){
 
     return(
         <>
-        <Box sx={{width:'80%'}}>
+        <Box sx={{width:'90%', p:2}}>
             <iframe
-               className="w-full md:w-[70%] h-[250px] md:h-[450px]"
+               className="w-full md:w-[95%] h-[300px] md:h-[450px]"
                 height="500"
                 src="https://www.youtube.com/embed/6c28qWDMPBA"
                 title="YouTube video player"

@@ -3,8 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from cores.models import Status
 from productions.models import Dish, Course
 # Create your models here.
-# author to user? 
-#add badge for better Differentiate normal normie to chef like roll
+# author and user model separated? 
+#add badge for better Differentiate normal normie to chef like role
 #normie is an insult???
 class User(AbstractUser):
 
@@ -40,12 +40,6 @@ class User(AbstractUser):
         ordering = ['role', 'email']
     def __str__(self):
         return f"{self.email}:'{self.role}"
-
-#author model
-#first name
-#last name
-#email
-
 
 class Save(models.Model):
     user = models.ForeignKey(
@@ -124,6 +118,7 @@ class Report(models.Model):
 #completion for user when they did a dish, can it be test if they actually did it?
 #cant have order for check, pure good faith it is then
 #that gonna be rough for the comment verify...
+#no verification!
 class Completion(models.Model):
     user = models.ForeignKey(
         User,
