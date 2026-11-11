@@ -3,18 +3,30 @@ from django.contrib.auth.models import AbstractUser
 from cores.models import Status
 from productions.models import Dish, Course
 # Create your models here.
+# author to user? 
+#add badge for better Differentiate normal normie to chef like roll
+#normie is an insult???
 class User(AbstractUser):
+
     class ROLE(models.TextChoices):
         ADMIN = 'admin', 'Admin',
         MOD = 'mod', 'Mod',
         USER = 'user', 'User'
-    
+
+    class BADGE(models.TextChoices):
+        CHEF = 'chef', 'Chef',
+        NORMIE = 'normie', 'NORMIE',
+        CRITIC = 'critic','Critics'
+
+    first_name = models.CharField(max_length=255,blank=True)
+    last_name = models.CharField(max_length=255,blank=True)
     email = models.EmailField(unique=True)
     birth_date = models.DateField(blank=True)
     gender = models.CharField(max_length=255,blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     role = models.CharField(choices=ROLE.choices, default=ROLE.USER)
+    badge = models.CharField(choices=BADGE.choices, default=BADGE.NORMIE)
     status = models.ForeignKey(
         Status,
         related_name='users',
@@ -28,6 +40,12 @@ class User(AbstractUser):
         ordering = ['role', 'email']
     def __str__(self):
         return f"{self.email}:'{self.role}"
+
+#author model
+#first name
+#last name
+#email
+
 
 class Save(models.Model):
     user = models.ForeignKey(
@@ -103,6 +121,9 @@ class Report(models.Model):
     def __str__(self):
             return f"{self.type_violation}:'{self.created_at}"
 
+#completion for user when they did a dish, can it be test if they actually did it?
+#cant have order for check, pure good faith it is then
+#that gonna be rough for the comment verify...
 class Completion(models.Model):
     user = models.ForeignKey(
         User,
