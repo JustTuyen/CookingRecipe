@@ -2,11 +2,19 @@
 cookingBE/.env
 
 # Python cache
+*/__pycache__/
 **/__pycache__/
+***/__pycache__/
+
+cookingBE/users/__pycache__/
+
 *.py[cod]
 
 # Django migrations
 cookingBE/promotions/migrations/
+cookingBE/productions/migrations/
+cookingBE/users/migrations/
+cookingBE/cores/migrations/
 
 # Node.js
 package-lock.json

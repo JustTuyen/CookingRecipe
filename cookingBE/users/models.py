@@ -6,6 +6,10 @@ from productions.models import Dish, Course
 # author and user model separated? 
 #add badge for better Differentiate normal normie to chef like role
 #normie is an insult???
+#need user full legit name for author, when user post a dish, required for it
+#verify first name matched with last name? 
+#properly not
+
 class User(AbstractUser):
 
     class ROLE(models.TextChoices):
