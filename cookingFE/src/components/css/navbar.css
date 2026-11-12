@@ -33,3 +33,11 @@
     object-fit: contain;
     object-position: center;
 }
+
+/* FOOTER */
+#footer-icon{
+    height: 100px;
+    width: 175px;
+    object-fit: contain;
+    object-position: center;
+}

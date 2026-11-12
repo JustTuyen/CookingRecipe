@@ -168,7 +168,7 @@ function Navbar(){
                     </Box>
                 </Stack>
                 <Grid
-                    spacing={4}
+                    spacing={2}
                     container
                     direction="row"
                     sx={{

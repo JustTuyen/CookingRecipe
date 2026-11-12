@@ -10,11 +10,12 @@ import NotFound from './views/notfound.jsx'
 import ChildCategory from './views/childCategoryPage.jsx'
 import GrandChildCategory from './views/grandchildcatetorypage.jsx'
 import DishDetail from './views/dishdetailpage.jsx'
-
+import Search from './views/searchPage.jsx'
 
 const router = createBrowserRouter([
   {path:'/',element:<Home/>},
   {path:'*',element:<NotFound/>},
+  {path:'/search',element:<Search/>},
   {path:'/subcategory',element:<SubCategory/>},
   {path:'/childcategory',element:<ChildCategory/>},
   {path:'/grandchildcategory',element:<GrandChildCategory/>},

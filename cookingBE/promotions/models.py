@@ -62,6 +62,9 @@ class BaseReview(models.Model):
         validators=[MinValueValidator(1), MaxValueValidator(5)]
     )
     comment = models.CharField(max_length=2000)
+    #no user-like-comment-connection for now
+    #cant control spamming, damn - crossed this out
+    #like_count = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(

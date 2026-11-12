@@ -5,6 +5,8 @@ import Dish from '../assets/dish01.webp'
 import Navbar from "../components/navbar";
 import DishGallery from "../components/DishGallary";
 import Review from '../components/Review'
+import SimilarDish from '../components/SimilarDish';
+import Footer from '../components/Footer';
 //
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
@@ -56,7 +58,7 @@ function DishDetail(){
     return(
         <>
         <Navbar/>
-        <div className="min-h-screen w-full flex justify-center">
+        <div className="min-h-screen w-full flex flex-col items-center">
             {/* div.grid-col-3, grid-col-2 for content, grid-col-1 for add lol more flexible */}
 
             <div className="w-full md:w-4/5 grid grid-cols-1 md:grid-cols-4 gap-2">
@@ -474,13 +476,21 @@ function DishDetail(){
 
                 </div> 
 
-                <div className="bg-amber-200 gap-2 hidden md:block">
+                <div className=" gap-2 hidden md:block">
                     <p>Adds</p>
                     {/* add only, disappeared when in phone width <= */}
                 </div> 
             </div>
-        </div>
+            
+            <div className="w-full md:w-4/5 flex flex-col gap-2 py-8">
+                <Divider/>
+                <SimilarDish/>
+            
+            </div>
 
+        </div>
+        <Footer/>
+       
         </>
     )
 }

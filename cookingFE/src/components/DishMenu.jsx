@@ -61,7 +61,7 @@ function DishMenu(){
 
             {/* dish card */}
             <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4 p-2">
-                <Card sx={{ maxWidth: 325 }} className=" mx-auto">
+                <Card elevation={3} sx={{ maxWidth: 325 }} className=" mx-auto">
                     <CardActionArea>
                         <div className="relative">
                             <div className='absolute inset-0 z-10 flex 
