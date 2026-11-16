@@ -44,7 +44,7 @@ function DishMenu(){
                 
                 <Stack direction={'row'} spacing={2} sx={{alignItems:"center"}}>
                     <Typography variant='body1'>Sorting:</Typography>
-                    <select className='p-2 bg-white rounded-lg'>
+                    <select className='p-2 bg-white rounded-lg border px-2'>
                         <option>
                             by name
                         </option>

@@ -1,11 +1,12 @@
 
 import * as React from 'react';
 //
-import Cat from '../assets/cat-img.webp'
+import Cat from '../../assets/cat-img.webp'
 //
-import Navbar from "../components/navbar";
-import DishHeader from "../components/DishHeader";
-import DishMenu from '../components/DishMenu';
+import Navbar from "../../components/navbar";
+import Footer from "../../components/Footer";
+import DishMenu from '../../components/DishMenu';
+import DishHeader from '../../components/DishHeader'
 //
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import DiningOutlinedIcon from '@mui/icons-material/DiningOutlined';
@@ -59,7 +60,7 @@ function SubCategory(){
                     </Stack>
                     {/* info */}
                     <Stack spacing={1} sx={{alignItems:'center'}}>
-                        <Typography variant="h4" sx={{fontWeight:'bold'}} gutterBottom>
+                        <Typography variant="h4" sx={{fontWeight:'bold',py:2}} gutterBottom>
                             CHICKEN
                         </Typography>
                         <Typography variant="body1" sx={{ textAlign:'center', textWrap:'pretty'}} 
@@ -117,6 +118,7 @@ function SubCategory(){
                 </section>
             </div>
         </div>
+        <Footer/>
         </>
     )
 }

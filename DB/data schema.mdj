@@ -12028,6 +12028,20 @@
 							"headQualifiersCompartment": {
 								"$ref": "AAAAAAGhpS5Wzju9Ero="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGh41BO3GMJJsM=",
+							"_parent": {
+								"$ref": "AAAAAAGhlcnawps164k="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 1344,
+							"top": 128,
+							"width": 70,
+							"height": 116,
+							"text": "user has to submit at least 3 dish for verify to rank a chef "
 						}
 					]
 				},
@@ -13782,7 +13796,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "id"
+							"name": "id",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13790,7 +13805,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "type"
+							"name": "type",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13798,7 +13814,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "reason"
+							"name": "reason",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13806,7 +13823,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "note"
+							"name": "note",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13814,7 +13832,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "created_at"
+							"name": "created_at",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13822,7 +13841,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "updated_at"
+							"name": "updated_at",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13830,7 +13850,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "dish_id"
+							"name": "dish_id",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -13838,7 +13859,8 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpQGRxIcySeY="
 							},
-							"name": "status_id"
+							"name": "status_id",
+							"type": ""
 						}
 					]
 				},
@@ -13903,9 +13925,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGhpS3OYdEu7mI="
 							},
-							"name": "description"
+							"name": "description",
+							"type": ""
 						}
 					]
+				},
+				{
+					"_type": "UMLClass",
+					"_id": "AAAAAAGh41ASUFwLdmg=",
+					"_parent": {
+						"$ref": "AAAAAAGhlcnawps0xX4="
+					},
+					"name": "Class1"
 				}
 			]
 		}
