@@ -19,14 +19,15 @@ import AvTimerIcon from '@mui/icons-material/AvTimer';
 import SwipeDownIcon from '@mui/icons-material/SwipeDown';
 import RiceBowlIcon from '@mui/icons-material/RiceBowl';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-import Avatar from '@mui/material/Avatar';
 import NewReleasesOutlinedIcon from '@mui/icons-material/NewReleasesOutlined';
+import StarIcon from '@mui/icons-material/Star';
+
 
 //
+import Avatar from '@mui/material/Avatar';
 import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import StarIcon from '@mui/icons-material/Star';
 import { Box, Button, Rating, Stack } from "@mui/material";
 import Divider from '@mui/material/Divider';
 import Switch from '@mui/material/Switch';

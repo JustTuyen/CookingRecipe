@@ -2,21 +2,26 @@ import * as React from 'react';
 //
 import Navbar from "../../components/navbar";
 import Footer from "../../components/Footer";
-import { Paper, Stack, Typography,Box, Button } from "@mui/material";
+import MyDish from '../../components/profiles/MyDish';
+import MySave from '../../components/profiles/MySave';
 //
+
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import SetMealIcon from '@mui/icons-material/SetMeal';
 import LocalDiningIcon from '@mui/icons-material/LocalDining';
-import CheckIcon from '@mui/icons-material/Check';
 import BookIcon from '@mui/icons-material/Book';
 import LogoutIcon from '@mui/icons-material/Logout';
 import StarsIcon from '@mui/icons-material/Stars';
-import RiceBowlIcon from '@mui/icons-material/RiceBowl';
 import FaceOutlinedIcon from '@mui/icons-material/FaceOutlined';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
+import MilitaryTechIcon from '@mui/icons-material/MilitaryTech';
+import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
+
+
 //
+import { Stack, Typography,Box, Button, Link } from "@mui/material";
 import Divider from '@mui/material/Divider';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
@@ -27,10 +32,12 @@ import ListItemText from '@mui/material/ListItemText';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-
+import ListItemAvatar from '@mui/material/ListItemAvatar';
 //
+
+//note: there really has to be a better way to layout this, 1000+ code lines aint fun :((((
+///////////////////////////////////////////
+//profile
 function ProfileOverview(){
     return(
         <>
@@ -143,13 +150,150 @@ function ProfileOverview(){
 }
 
 
+///////////////////////////////////////////
+//tiny extra tabs for fact, no extra function, static
+function CausalUser(){
+    return(
+        <>
+        <Box>
+            <List>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Tích luỹ chi tiêu tối thiểu 100,000₫."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Ưu đãi đặc quyền trong các dịp sinh nhật, ra mắt sản phẩm mới và những sự kiện khác."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hỗ trợ chăm sóc tận tình trong suốt quá trình mua hàng."/>
+                </ListItem>
+            </List>
+        </Box>
+        </>
+    )
+}
+
+function ChefUser(){
+    return(
+        <>
+        <Box>
+            <List>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Tích luỹ chi tiêu tối thiểu 100,000₫."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Ưu đãi đặc quyền trong các dịp sinh nhật, ra mắt sản phẩm mới và những sự kiện khác."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hỗ trợ chăm sóc tận tình trong suốt quá trình mua hàng."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hỗ trợ chăm sóc tận tình trong suốt quá trình mua hàng."/>
+                </ListItem>
+            </List>
+        </Box>
+        
+        </>
+    )
+}
+
+function CriticUser(){
+    return(
+        <>
+        <Box>
+            <List>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Tích luỹ chi tiêu tối thiểu 100,000₫."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Ưu đãi đặc quyền trong các dịp sinh nhật, ra mắt sản phẩm mới và những sự kiện khác."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hỗ trợ chăm sóc tận tình trong suốt quá trình mua hàng."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hỗ trợ chăm sóc tận tình trong suốt quá trình mua hàng."/>
+                </ListItem>
+                <ListItem>
+                    <ListItemAvatar>
+                        <Avatar sx={{ width: 30, height: 30, bgcolor:'#FEF3E2' }}>
+                            <MilitaryTechIcon sx={{color:'#D4621A'}} />
+                        </Avatar>
+                    </ListItemAvatar>
+                    <ListItemText primary="Hỗ trợ chăm sóc tận tình trong suốt quá trình mua hàng."/>
+                </ListItem>
+            </List>
+        </Box>
+        </>
+    )
+}
+
 function BadgeOverview(){
-    const [value, setValue] = React.useState('normie');
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
+    const [activeTab, setActiveTab] = React.useState('causalUser');
+    const renderSubView = () => {
+        switch(activeTab){
+            case 'causalUser':
+                return <CausalUser/>;
+            case 'chefUser':
+                return <ChefUser/>;
+            case 'criticUser':
+                return <CriticUser/>
+        }
     };
-
 
     return(
         <>
@@ -159,42 +303,93 @@ function BadgeOverview(){
                 <Typography variant='body1'>Quản lý thông tin hồ sơ để bảo mật tài khoản</Typography>
             </Stack>
             <Divider/>
-            <Box>
-                
+            <Box sx={{border: '2px solid #D4621A', p:2, m:2}}>
+                <Stack spacing={1}>
+                    <Typography variant='h5' sx={{fontWeight:'bold'}}>You Badge Currently are <span className='text-[#D4621A] underline'>Causal User</span> !</Typography>
+                    <Stack direction={'row'} spacing={1}>
+                        <ArrowRightOutlinedIcon/>
+                        <Typography variant='body2'>Read ur right below for more info!</Typography>
+                    </Stack>
+                    <Stack direction={'row'} spacing={1}>
+                        <ArrowRightOutlinedIcon/>
+                        <Typography variant='body2'>If you want to rank up, read our instruction <Link  href="#" color='warning' underline="hover">here</Link> for info</Typography>
+                    </Stack>
+                </Stack>
             </Box>
-            <Box sx={{ width: '100%' }}>
+            <Divider variant='middle'/>
+            <Box>
                 <Stack direction={'row'} spacing={2} sx={{justifyContent:'center', alignItems:'center',p:2}}>
-                    <Button variant='text' color='warning' endIcon={<FaceOutlinedIcon/>}>
+                    <Button variant='text' color='warning' endIcon={<FaceOutlinedIcon/>} onClick={() => setActiveTab('causalUser')}>
                         Causal
                     </Button>
-                    <Button variant='text'color='warning' endIcon={<LocalDiningIcon/>}>
+                    <Button variant='text'color='warning' endIcon={<LocalDiningIcon/>} onClick={() => setActiveTab('chefUser')}>
                         Chef
                     </Button>
-                    <Button variant='text'color='warning' endIcon={<VerifiedOutlinedIcon/>}>
+                    <Button variant='text'color='warning' endIcon={<VerifiedOutlinedIcon/>} onClick={() => setActiveTab('criticUser')}>
                         Critic
                     </Button>
-
                 </Stack>
-            
+                <Box>
+                    {renderSubView()}
+                </Box>
             </Box>
         </section>
         </>
     )
 }
 
+///////////////////////////////////////////
+//my dish
+function DishOverview(){
+    return(
+        <>
+        <section className='p-2'>
+            <Stack spacing={'2'} direction={'column'} sx={{textAlign:'start'}}>
+                <Typography variant='h5' sx={{fontWeight:'bold'}}>My Dish</Typography>
+                <Typography variant='body1'>Quản lý thông tin hồ sơ để bảo mật tài khoản</Typography>
+            </Stack>
+            <Divider/>
+            
+            <MySave/>
+           
+        </section>
+        </>
+    )
+}
+
+///////////////////////////////////////////
+//my dish
+function SaveOverview(){
+    return(
+        <>
+        <section className='p-2'>
+            <Stack spacing={'2'} direction={'column'} sx={{textAlign:'start'}}>
+                <Typography variant='h5' sx={{fontWeight:'bold'}}>My Save</Typography>
+                <Typography variant='body1'>Quản lý thông tin hồ sơ để bảo mật tài khoản</Typography>
+            </Stack>
+            <Divider/>
+            
+            <MyDish/>
+           
+        </section>
+        </>
+    )
+}
+
+
 function Profile(){
 
-    const [activeTab, setActiveTab] = React.useState('profileOverview');
+    const [activeTab, setActiveTab] = React.useState('badgeOverview');
     const renderSubView = () => {
         switch(activeTab){
             case 'profileOverview':
                 return <ProfileOverview/>;
             case 'badgeOverview':
                 return <BadgeOverview/>;
-            // case 'bookmark':
-            //     return <BookMarks/>
-            // case 'posting':
-            //     return <Posting/>
+            case 'dishOverview':
+                return <DishOverview/>
+            case 'saveOverview':
+                return <SaveOverview/>
         }
     };
 
@@ -278,7 +473,7 @@ function Profile(){
 
 
                         {/* content */}
-                        <div className="col-span-3 p-2 bg-white rounded-md ">
+                        <div className="col-span-3 p-2 bg-white rounded-md min-h-[90vh]">
                             {renderSubView()}
                         </div>
                     </div>
