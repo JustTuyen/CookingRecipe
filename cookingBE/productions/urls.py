@@ -1,5 +1,6 @@
 from rest_framework.routers import DefaultRouter
-from .views import CategoryViewSet, SubCategoryViewSet,CourseViewSet, ChildSubCategoryViewSet, DishViewSet,GrandChildCategoryViewSet
+from .views import (CategoryViewSet, SubCategoryViewSet,CourseViewSet, ChildSubCategoryViewSet, 
+DishViewSet,GrandChildCategoryViewSet, DirectionViewSet,IngredientViewSet) 
 from django.urls import path, include
 
 router = DefaultRouter()
@@ -9,6 +10,8 @@ router.register('course',CourseViewSet, basename='course')
 router.register('childsubcategory',ChildSubCategoryViewSet, basename='childsubcategory')
 router.register('grandchildcategory',GrandChildCategoryViewSet, basename='grandchildcategory')
 router.register('dish',DishViewSet, basename='dish')
+router.register('direction',DirectionViewSet, basename='direction')
+router.register('ingredient', IngredientViewSet, basename='ingredient')
 
 urlpatterns = [
     path('', include(router.urls)),
